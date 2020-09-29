@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageIndicator: UIActivityIndicatorView!
     @IBOutlet weak var lblTitle: UILabel!
     
     var newsDetail = NSDictionary()
@@ -34,6 +35,7 @@ class DetailViewController: UIViewController {
                     DispatchQueue.main.async {
                         imageView.image = image
                         imageView.layer.cornerRadius = 3
+                        self.imageIndicator.stopAnimating()
                     }
                 }
             }

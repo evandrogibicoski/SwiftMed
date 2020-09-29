@@ -161,14 +161,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-y7-PKn" userLabel="imageIndicator">
+                                <rect key="frame" x="188.5" y="188.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="M9u-ok-yDQ" firstAttribute="leading" secondItem="ePi-uW-i5S" secondAttribute="leading" constant="12" id="FwO-HT-5vf"/>
                             <constraint firstItem="ePi-uW-i5S" firstAttribute="trailing" secondItem="M9u-ok-yDQ" secondAttribute="trailing" constant="12" id="G2P-Rp-bbh"/>
                             <constraint firstItem="M9u-ok-yDQ" firstAttribute="top" secondItem="rON-kj-5bH" secondAttribute="bottom" constant="12" id="K7h-Kz-4FT"/>
+                            <constraint firstItem="IJH-y7-PKn" firstAttribute="centerX" secondItem="rON-kj-5bH" secondAttribute="centerX" id="jrH-Uz-iYn"/>
                             <constraint firstItem="rON-kj-5bH" firstAttribute="top" secondItem="ePi-uW-i5S" secondAttribute="top" id="lL8-tO-WdX"/>
                             <constraint firstItem="rON-kj-5bH" firstAttribute="leading" secondItem="ePi-uW-i5S" secondAttribute="leading" id="q3W-gx-4hj"/>
+                            <constraint firstItem="IJH-y7-PKn" firstAttribute="centerY" secondItem="rON-kj-5bH" secondAttribute="centerY" id="xmZ-Tx-5gD"/>
                             <constraint firstItem="ePi-uW-i5S" firstAttribute="trailing" secondItem="rON-kj-5bH" secondAttribute="trailing" id="yUl-bu-RDc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ePi-uW-i5S"/>
@@ -176,6 +181,7 @@
                     <navigationItem key="navigationItem" id="yRZ-3K-nan"/>
                     <connections>
                         <outlet property="image" destination="rON-kj-5bH" id="Tl4-9J-yMw"/>
+                        <outlet property="imageIndicator" destination="IJH-y7-PKn" id="3sx-nZ-73s"/>
                         <outlet property="lblTitle" destination="M9u-ok-yDQ" id="PSl-U6-oES"/>
                     </connections>
                 </viewController>
