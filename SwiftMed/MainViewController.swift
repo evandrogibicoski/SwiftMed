@@ -27,6 +27,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.loadJson(fromURLString: endpoint) { (result) in
             switch result {
             case .success(let data):
@@ -42,7 +46,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
             }
         }
-        
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
