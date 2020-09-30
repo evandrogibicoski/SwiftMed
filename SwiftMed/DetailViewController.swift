@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         btnReadMore.layer.cornerRadius = 10
-
+        
         if let imageURLString = newsDetail.value(forKey: "urlToImage") as? String {
             if let url = URL(string: imageURLString) {
                 loadImage(imageView: self.image, url: url)
