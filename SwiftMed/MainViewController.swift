@@ -26,19 +26,47 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let url = URL(string: endpoint) {
-            if let data = try? Data(contentsOf: url) {
-                let decoder = JSONDecoder()
-                if let newsData = try? decoder.decode(News.self, from: data) {
-                    articles = newsData.articles
-                    self.collectionView.reloadData()
+        self.loadJson(fromURLString: endpoint) { (result) in
+            switch result {
+            case .success(let data):
+                self.parse(jsonData: data)
+            case .failure(let error):
+                print(error)
+                DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                 }
+             }
+         }
+    }
                 
+    private func loadJson(fromURLString urlString: String,
+                          completion: @escaping (Result<Data, Error>) -> Void) {
+        if let url = URL(string: urlString) {
+            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let data = data {
+                    completion(.success(data))
+                }
+            }
+            
+            urlSession.resume()
+        }
+    }
+    
+    private func parse(jsonData: Data) {
+        let decoder = JSONDecoder()
+        if let newsData = try? decoder.decode(News.self, from: jsonData) {
+            articles = newsData.articles
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
-        
     }
+
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
@@ -52,10 +80,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.lblTitle.text = article.title
         cell.lblDetail.text = article.description
         if article.urlToImage == nil {
+            cell.activityIndicator.stopAnimating()
             cell.imageWidthConstraint.constant = 0
         } else {
             if let url = URL(string: article.urlToImage!) {
-                loadImage(imageView: cell.image, url: url)
+                loadImage(imageView: cell.image, url: url, indicator: cell.activityIndicator)
             }
         }
         cell.lblAuthor.text = article.author
@@ -78,13 +107,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell;
     }
     
-    func loadImage(imageView: UIImageView, url: URL) {
+    func loadImage(imageView: UIImageView, url: URL, indicator: UIActivityIndicatorView) {
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         imageView.image = image
                         imageView.layer.cornerRadius = 3
+                        indicator.stopAnimating()
                     }
                 }
             }

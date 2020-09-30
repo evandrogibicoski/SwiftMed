@@ -80,6 +80,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="vcv-N1-MXi">
+                                                    <rect key="frame" x="301" y="46" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CKy-iY-c0e" firstAttribute="leading" secondItem="Hlg-Az-8Sj" secondAttribute="leading" constant="20" id="2xr-3O-ZMo"/>
@@ -91,12 +94,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="uPC-Yu-mX6" secondAttribute="trailing" constant="20" id="lrm-Hw-9TJ"/>
                                                 <constraint firstItem="CKy-iY-c0e" firstAttribute="width" secondItem="je7-NA-yPN" secondAttribute="width" id="qQS-lv-cgi"/>
                                                 <constraint firstAttribute="bottom" secondItem="1ya-We-ul3" secondAttribute="bottom" constant="16" id="vJa-KV-aFq"/>
+                                                <constraint firstItem="uPC-Yu-mX6" firstAttribute="centerY" secondItem="vcv-N1-MXi" secondAttribute="centerY" id="vdF-aF-7RV"/>
                                                 <constraint firstItem="uPC-Yu-mX6" firstAttribute="top" secondItem="Hlg-Az-8Sj" secondAttribute="top" constant="16" id="x1m-gF-pk9"/>
+                                                <constraint firstItem="uPC-Yu-mX6" firstAttribute="centerX" secondItem="vcv-N1-MXi" secondAttribute="centerX" id="xwa-Kd-Ait"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="371" height="178"/>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="vcv-N1-MXi" id="FY7-8Q-uN5"/>
                                             <outlet property="image" destination="uPC-Yu-mX6" id="zAR-ez-PhO"/>
                                             <outlet property="imageWidthConstraint" destination="T2K-4v-vCD" id="sE8-38-YDU"/>
                                             <outlet property="lblAuthor" destination="1ya-We-ul3" id="wA8-hM-Mih"/>

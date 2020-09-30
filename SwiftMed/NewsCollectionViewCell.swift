@@ -13,6 +13,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDetail: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var lblAuthor: UILabel!
