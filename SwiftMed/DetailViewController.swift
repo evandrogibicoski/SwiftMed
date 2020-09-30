@@ -17,27 +17,27 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var btnReadMore: UIButton!
     
-    var newsDetail = NSDictionary()
+    var article = Article()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         btnReadMore.layer.cornerRadius = 10
         
-        if let imageURLString = newsDetail.value(forKey: "urlToImage") as? String {
-            if let url = URL(string: imageURLString) {
+        if article.urlToImage != nil {
+            if let url = URL(string: article.urlToImage!) {
                 loadImage(imageView: self.image, url: url)
             }
         }
-        self.lblTitle.text = newsDetail.value(forKey: "title") as? String
-        self.lblDescription.text = newsDetail.value(forKey: "description") as? String
+        self.lblTitle.text = article.title
+        self.lblDescription.text = article.description
         
-        if let publishedAt = newsDetail.value(forKey: "publishedAt") as? String {
+        if article.publishedAt != nil {
             let formatter = DateFormatter()
             formatter.locale = Locale.current
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
             let currentTime = Date()
-            if let date = formatter.date(from: publishedAt) {
+            if let date = formatter.date(from: article.publishedAt!) {
                 let difference = Calendar.current.dateComponents([.day, .hour, .minute], from: date, to: currentTime)
                 var formattedString = String(format: "%ld minutes ago",difference.minute!)
                 if difference.hour! > 0 {

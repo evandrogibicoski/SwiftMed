@@ -15,6 +15,8 @@
 		6420E64025235D00001E8376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6420E63E25235D00001E8376 /* LaunchScreen.storyboard */; };
 		6420E64A25236F78001E8376 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E64925236F78001E8376 /* NewsCollectionViewCell.swift */; };
 		6420E64C2523A350001E8376 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E64B2523A350001E8376 /* DetailViewController.swift */; };
+		64771DB42524DF0C00917D4F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64771DB32524DF0C00917D4F /* Article.swift */; };
+		64771DB62524DFF700917D4F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64771DB52524DFF700917D4F /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		6420E64125235D00001E8376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6420E64925236F78001E8376 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6420E64B2523A350001E8376 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		64771DB32524DF0C00917D4F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		64771DB52524DFF700917D4F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				6420E64125235D00001E8376 /* Info.plist */,
 				6420E64925236F78001E8376 /* NewsCollectionViewCell.swift */,
 				6420E64B2523A350001E8376 /* DetailViewController.swift */,
+				64771DB32524DF0C00917D4F /* Article.swift */,
+				64771DB52524DFF700917D4F /* News.swift */,
 			);
 			path = SwiftMed;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 				6420E63425235D00001E8376 /* AppDelegate.swift in Sources */,
 				6420E64C2523A350001E8376 /* DetailViewController.swift in Sources */,
 				6420E63625235D00001E8376 /* SceneDelegate.swift in Sources */,
+				64771DB62524DFF700917D4F /* News.swift in Sources */,
+				64771DB42524DF0C00917D4F /* Article.swift in Sources */,
 				6420E64A25236F78001E8376 /* NewsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
