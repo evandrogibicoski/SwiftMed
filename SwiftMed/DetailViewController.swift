@@ -28,6 +28,8 @@ class DetailViewController: UIViewController {
             if let url = URL(string: article.urlToImage!) {
                 loadImage(imageView: self.image, url: url)
             }
+        } else {
+            self.imageIndicator.stopAnimating()
         }
         self.lblTitle.text = article.title
         self.lblDescription.text = article.description
@@ -69,5 +71,12 @@ class DetailViewController: UIViewController {
 
     @IBAction func onBackBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "urlSegueIdentifier") {
+            let urlViewController = segue.destination as! URLViewController
+            urlViewController.urlString = article.url!
+        }
     }
 }

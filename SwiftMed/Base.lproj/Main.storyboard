@@ -219,6 +219,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Read the entire article" image="arrow.right.to.line.alt" catalog="system"/>
+                                <connections>
+                                    <segue destination="fVd-42-rfe" kind="show" identifier="urlSegueIdentifier" id="g6F-8H-dvE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,6 +265,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUe-Iu-KgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="137.94642857142856"/>
+        </scene>
+        <!--URL View Controller-->
+        <scene sceneID="ppL-xV-K7u">
+            <objects>
+                <viewController id="fVd-42-rfe" customClass="URLViewController" customModule="SwiftMed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XcU-00-9tW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNO-Mx-hrB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Xnv-5L-7GQ">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xnv-5L-7GQ" firstAttribute="centerX" secondItem="XcU-00-9tW" secondAttribute="centerX" id="AfA-up-w5H"/>
+                            <constraint firstItem="FNO-Mx-hrB" firstAttribute="top" secondItem="xMg-kj-CED" secondAttribute="top" id="NsZ-WR-gOI"/>
+                            <constraint firstItem="xMg-kj-CED" firstAttribute="trailing" secondItem="FNO-Mx-hrB" secondAttribute="trailing" id="VQP-mT-mMn"/>
+                            <constraint firstItem="FNO-Mx-hrB" firstAttribute="leading" secondItem="xMg-kj-CED" secondAttribute="leading" id="la1-yp-Muo"/>
+                            <constraint firstItem="xMg-kj-CED" firstAttribute="bottom" secondItem="FNO-Mx-hrB" secondAttribute="bottom" id="m8I-9u-M2D"/>
+                            <constraint firstItem="Xnv-5L-7GQ" firstAttribute="centerY" secondItem="XcU-00-9tW" secondAttribute="centerY" id="vZN-Ou-2zk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xMg-kj-CED"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cdo-7Y-Eol"/>
+                    <connections>
+                        <outlet property="activity" destination="Xnv-5L-7GQ" id="5aB-hg-sVz"/>
+                        <outlet property="webView" destination="FNO-Mx-hrB" id="jKB-Pt-zP9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEs-sE-ChK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1579.7101449275362" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
